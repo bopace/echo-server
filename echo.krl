@@ -15,7 +15,7 @@ Echo ruleset for lab 6 - CS 462
   }
 
   rule message {
-    select when echo message input re#(.*)# setting(m);
+    select when echo message input re#(.*)# setting(m)
     send_directive("say", {"something":m})
   }
 }
