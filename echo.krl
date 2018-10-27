@@ -6,7 +6,6 @@ Echo ruleset for lab 6 - CS 462
 >>
     author "Bo Pace"
     logging on
-    shares hello
   }
 
   rule hello {
