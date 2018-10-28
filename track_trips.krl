@@ -9,7 +9,7 @@ Track Trips ruleset for lab 6 - CS 462
   }
 
   rule process_trip {
-    select when echo message mileage re#(.*)# setting(m)
+    select when car new_trip mileage re#(.*)# setting(m)
     send_directive("trip", {"length":m})
   }
 }
