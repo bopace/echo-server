@@ -13,7 +13,7 @@ Track Trips ruleset for lab 6 - CS 462
   }
 
   rule process_trip {
-    select when car new_trip mileage re#[-+]?[0-9]\d*(\.\d+)# setting(m)
+    select when car new_trip mileage re#([-+]?[0-9]\d*(\.\d+)?)# setting(m)
     send_directive("trip", {"length":m})
     fired {
       raise explicit event "trip_processed"
