@@ -8,6 +8,20 @@ Trip Store ruleset for lab 6 - CS 462
     logging on
   }
 
+  global {
+    trips = function() {
+      ent:all_trips
+    }
+
+    long_trips = function() {
+      ent:long_trips
+    }
+
+    short_trips = function() {
+      ent:all_trips.difference(ent:long_trips)
+    }
+  }
+
   rule collect_trips {
     select when explicit trip_processed mileage re#([-+]?[0-9]\d*(\.\d+)?)# setting(m)
     fired {
