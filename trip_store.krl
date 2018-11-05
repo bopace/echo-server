@@ -21,4 +21,12 @@ Trip Store ruleset for lab 6 - CS 462
       ent:long_trips := ent:long_trips.defaultsTo([]).append({"mileage": m, "timestamp": time:now()}).klog("all long trips so far: ")
     }
   }
+
+  rule clear_trips {
+    select when car trip_reset
+    fired {
+      ent:all_trips := [].klog("all_trips cleared");
+      ent:long_trips := [].klog("long_trips cleared");
+    }
+  }
 }
