@@ -25,7 +25,8 @@ Track Trips ruleset for lab 6 - CS 462
     select when explicit trip_processed
     fired {
       raise explicit event "found_long_trip"
-        if (event:attr("mileage") > long_trip)
+        attributes event:attrs
+          if (event:attr("mileage") > long_trip)
     }
   }
 }
