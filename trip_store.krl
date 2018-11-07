@@ -7,7 +7,7 @@ Trip Store ruleset for lab 6 - CS 462
     author "Bo Pace"
     logging on
     provides trips, long_trips, short_trips
-    shares on
+    shares trips, long_trips, short_trips
   }
 
   global {
