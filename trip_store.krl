@@ -25,16 +25,16 @@ Trip Store ruleset for lab 6 - CS 462
   }
 
   rule collect_trips {
-    select when explicit trip_processed mileage re#([-+]?[0-9]\d*(\.\d+)?)# setting(m)
+    select when explicit trip_processed mileage re#(.*)# timestamp re#(.*)# setting(m, timestamp)
     fired {
-      ent:all_trips := ent:all_trips.defaultsTo([]).append({"mileage": m, "timestamp": time:now()}).klog("all trips so far: ")
+      ent:all_trips := ent:all_trips.defaultsTo([]).append({"mileage": m, "timestamp": timestamp}).klog("all trips so far: ")
     }
   }
 
   rule collect_long_trips {
-    select when explicit found_long_trip mileage re#([-+]?[0-9]\d*(\.\d+)?)# setting(m)
+    select when explicit found_long_trip mileage re#(.*)# timestamp re#(.*)# setting(m, timestamp)
     fired {
-      ent:long_trips := ent:long_trips.defaultsTo([]).append({"mileage": m, "timestamp": time:now()}).klog("all long trips so far: ")
+      ent:long_trips := ent:long_trips.defaultsTo([]).append({"mileage": m, "timestamp": timestamp}).klog("all long trips so far: ")
     }
   }
 
